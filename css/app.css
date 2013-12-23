@@ -1,0 +1,20 @@
+img {
+    width: 100%;
+}
+
+.artist .chart {
+    height: 200px;
+}
+
+.artist .total, .artist h2 {
+    text-align: center;
+}
+
+.artist .image-wrapper {
+    min-height: 195px;
+}
+
+body {
+    background: url('/umk/images/noise.png');
+}
+
