@@ -6,7 +6,7 @@
     <div class="col-md-6">
         <?php
         $this->widget('TimeseriesChart', array(
-            'url' => 'http://localhost/tweettilaskuri/groups/tweets/',
+            'url' => Yii::app()->params['tweetCounterUrl'] . 'groups/tweets/',
             'serieName' => 'Tweettejä',
             'parameters' => array(
                 'group' => $artist['name'],

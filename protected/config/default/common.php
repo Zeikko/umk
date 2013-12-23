@@ -89,5 +89,6 @@ return array(
         ),
     ),
     'params' => array(
+        'tweetCounterUrl' => '',
     ),
 );

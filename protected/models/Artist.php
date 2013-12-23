@@ -8,52 +8,40 @@ class Artist
         return array(
             array(
                 'name' => 'Clarissa',
-                'groupId' => 1,
             ),
             array(
                 'name' => 'Dennis Fagerström',
                 'image' => 'dennis_fagerstrom.jpg',
-                'groupId' => 2,
             ),
             array(
                 'name' => 'Hanna Sky',
-                'groupId' => 3,
             ),
             array(
                 'name' => 'Hukka ja Mama',
-                'groupId' => 4,
             ),
             array(
                 'name' => 'Jasmin Michaela',
-                'groupId' => 5,
             ),
             array(
                 'name' => 'Lili Lambert',
-                'groupId' => 6,
             ),
             array(
                 'name' => 'Lauri Mikkola',
-                'groupId' => 7,
             ),
             array(
                 'name' => 'MadCraft',
-                'groupId' => 8,
             ),
             array(
                 'name' => 'Makea',
-                'groupId' => 9,
             ),
             array(
                 'name' => 'Miau',
-                'groupId' => 10,
             ),
             array(
                 'name' => 'Mikko Pohjola',
-                'groupId' => 11,
             ),
             array(
                 'name' => 'Softengine',
-                'groupId' => 16,
             ),
         );
     }
