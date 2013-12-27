@@ -6720,7 +6720,7 @@ td.visible-sm {
 
 @media (min-width: 1200px) {
   .visible-sm.visible-lg {
-    display: block !important;
+    display: block !impormtant;
   }
   table.visible-sm.visible-lg {
     display: table;

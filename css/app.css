@@ -14,11 +14,14 @@ img {
     text-align: center;
 }
 
-.artist .image-wrapper {
-    height: 195px;
-}
+
 
 body {
     background: url('/umk/images/noise.png');
 }
 
+@media (min-width: 992px) {
+    .artist .image-wrapper {
+        height: 195px;
+    }
+}
