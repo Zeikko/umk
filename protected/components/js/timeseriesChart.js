@@ -42,6 +42,7 @@
 
                 });
                 this.renderChart(series);
+                $('#artists .artist').tsort('.total',{order:'desc'});
             }
         })
     }

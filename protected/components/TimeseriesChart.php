@@ -35,7 +35,7 @@ class TimeseriesChart extends CWidget
         );
         Yii::app()->clientScript->registerScriptFile(
                 Yii::app()->assetManager->publish(
-                        Yii::getPathOfAlias('webroot.protected.components.js') . '/moment.min.js'
+                        Yii::getPathOfAlias('webroot.js') . '/moment.min.js'
                 )
         );
         Yii::app()->clientScript->registerScriptFile(
