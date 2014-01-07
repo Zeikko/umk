@@ -35,7 +35,7 @@ class Artist
                 'name' => 'Makea',
             ),
             array(
-                'name' => 'Miau',
+                'name' => 'MIAU',
             ),
             array(
                 'name' => 'Mikko Pohjola',
