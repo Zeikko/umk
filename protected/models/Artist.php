@@ -11,7 +11,7 @@ class Artist
             ),
             array(
                 'name' => 'Dennis Fagerström',
-                'image' => 'dennis_fagerstrom.jpg',
+                'image' => 'dennis_fagerstrom',
             ),
             array(
                 'name' => 'Hanna Sky',
@@ -62,7 +62,7 @@ class Artist
             $artist['image'] = str_replace(' ', '_', strtolower($artist['name']));
         }
         $artist['image'] = Yii::app()->baseUrl . '/images/' . $artist['image'];
-        return $artist['image'];
+        return $artist['image'] . '.png';
     }
 
 }
