@@ -15,12 +15,11 @@ class SiteController extends Controller
     {
         $name = urldecode($name);
         $artist = Artist::getArtist($name);
-        if($artist) {
-        $this->render('artist', array(
-            'artist' => $artist,
-        ));
-        }
-        else {
+        if ($artist) {
+            $this->render('artist', array(
+                'artist' => $artist,
+            ));
+        } else {
             new CHttpException(404, 'Not Found');
         }
     }
@@ -33,6 +32,12 @@ class SiteController extends Controller
             else
                 $this->render('error', $error);
         }
+    }
+
+    public function actionUmk14()
+    {
+        $this->render('umk14', array(
+        ));
     }
 
 }

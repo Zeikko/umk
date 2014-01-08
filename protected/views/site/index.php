@@ -17,7 +17,7 @@
                 'serieName' => 'Tweettejä',
                 'parameters' => array(
                     'group' => $artist['name'],
-                    'from' => date('c', ceil(strtotime('-7 days') / 86400) * 86400),
+                    'from' => date('c', ceil(strtotime('26.12.2013') / 86400) * 86400),
                     'to' => date('c', ceil(time() / 86400) * 86400),
                 )
             ));

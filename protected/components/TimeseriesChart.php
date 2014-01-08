@@ -8,9 +8,13 @@ class TimeseriesChart extends CWidget
     public $url;
     public $parameters = array();
     public $serieName;
+    public $heading = '';
 
     public function init()
     {
+        if($this->heading) {
+            $this->heading .= ' ';
+        }
         $this->id = 'timeseries-chart-' . self::$counter;
         self::$counter++;
     }

@@ -11,6 +11,9 @@ return array(
         'log',
     ),
     'language' => 'fi',
+    'aliases' => array(
+        'bootstrap' => 'application.modules.bootstrap',
+    ),
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
@@ -23,13 +26,6 @@ return array(
         'bootstrap.helpers.*',
         'bootstrap.widgets.*',
         'bootstrap.extensions.*',
-        'chartjs.*',
-        'chartjs.widgets.*',
-        'chartjs.components.*',
-    ),
-    'aliases' => array(
-        'bootstrap' => 'application.modules.bootstrap',
-        'chartjs' => 'application.modules.bootstrap.extensions.yii-chartjs-master'
     ),
     'modules' => array(
         'bootstrap' => array(
@@ -57,6 +53,8 @@ return array(
             'urlFormat' => 'path',
             'rules' => array(
                 'artisti/<name>' => 'site/artist',
+                'umk14' => 'site/umk14',
+                '' => 'site/index',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),

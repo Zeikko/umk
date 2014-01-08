@@ -36,13 +36,13 @@
                         data: new Array(),
                     }
                 ];
-                $(".total", this.element).html(response.tweets.total);
+                $(".total span", this.element).html(response.tweets.total);
                 $.each(response.tweets.history, function(index, dataPoint) {
                     series[0].data.push(new Array(moment(dataPoint.time).valueOf(), dataPoint.tweet_count));
 
                 });
                 this.renderChart(series);
-                $('#artists .artist').tsort('.total',{order:'desc'});
+                $('#artists .artist').tsort('.total span',{order:'desc'});
             }
         })
     }
