@@ -13,7 +13,7 @@
             </div>
             <?php
             $this->widget('TimeseriesChart', array(
-                'url' => Yii::app()->params['tweetCounterUrl'] . 'groups/tweets/',
+                'url' => Yii::app()->params['tweetCounterUrl'] . 'groups/tweetcounts/',
                 'serieName' => 'Tweettejä',
                 'parameters' => array(
                     'group' => $artist['name'],

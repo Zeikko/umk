@@ -33,6 +33,21 @@ class Controller extends CController
                         Yii::getPathOfAlias('webroot.js') . '/tinysort.js'
                 )
         );
+        Yii::app()->clientScript->registerScriptFile(
+                Yii::app()->assetManager->publish(
+                        Yii::getPathOfAlias('webroot.js') . '/underscore.js'
+                )
+        );
+        Yii::app()->clientScript->registerScriptFile(
+                Yii::app()->assetManager->publish(
+                        Yii::getPathOfAlias('webroot.js.timeago') . '/timeago.js'
+                )
+        );
+        Yii::app()->clientScript->registerScriptFile(
+                Yii::app()->assetManager->publish(
+                        Yii::getPathOfAlias('webroot.js.timeago') . '/timeago.fi.js'
+                )
+        );
         $cs = Yii::app()->clientScript;
         $cs->registerCssFile(Yii::app()->assetManager->publish(Yii::getPathOfAlias('webroot.css') . '/bootstrap.css'));
         $cs->registerCssFile(Yii::app()->assetManager->publish(Yii::getPathOfAlias('webroot.css') . '/bootstrap-theme.css'));

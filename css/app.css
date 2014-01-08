@@ -2,8 +2,8 @@ h2 {
     font-size: 28px;
 }
 
-img {
-    width: 100%;
+.artist img, .artist-single img {
+    max-width: 100%;
 }
 
 .artist .chart {
@@ -22,4 +22,42 @@ body {
     .artist .image-wrapper {
         height: 195px;
     }
+}
+
+#tweets {
+    border-radius: 6px;
+    border: 1px solid #e8e8e8;
+}
+
+.tweet {
+    min-height: 51px;
+    padding: 9px 12px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.tweet .user-image {
+    float: left;
+    margin-top: 3px;
+    margin-left: -58px;
+}
+
+.tweet .tweet-content {
+    margin-left: 58px;
+}
+
+.tweet .name {
+    font-weight: bold;
+}
+
+.tweet .screen-name {
+    font-size: 12px;
+    color: #999;
+}
+
+.tweet .time {
+    font-size: 12px;
+    position: relative;
+    float: right;
+    margin-top: 1px;
+    color: #bbb;
 }
