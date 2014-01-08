@@ -52,6 +52,9 @@
             chart: {
                 backgroundColor: 'rgba(255, 255, 255, 0)'
             },
+            colors: [
+                '#40B3D9'
+            ],
             xAxis: [
                 {
                     type: 'datetime'

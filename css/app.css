@@ -1,13 +1,31 @@
 body {
     background: url('/umk/images/noise.png');
+    font-family: 'Yle Regular';
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Yle Regular';
 }
 
 .container {
     margin-top: 20px;
 }
 
+h1 {
+    font-size: 40px;
+}
+
 h2 {
-    font-size: 28px;
+    font-size: 24px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 3px;
+    margin-top: 20px;
+}
+
+.artist h2 {
+    font-family: 'Yle Bold';
 }
 
 .artist img, .artist-single img {
@@ -18,18 +36,36 @@ h2 {
     height: 200px;
 }
 
-.artist .total, .artist h2 {
+.artist .total {
+    font-size: 34px;
     text-align: center;
+    margin: 1em 0 0.5em 0;
 }
+
+.total span {
+    background-color: #e8e8e8;
+    padding: .15em .3em .15em;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+.artist a, .artist a:visited {
+    color: #FF00EF;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: #FF00EF;
+}
+
+.nav > li a {
+    font-weight: bold;
+}
+
 
 .chart {
     height: 360px;
-}
-
-@media (min-width: 992px) {
-    .artist .image-wrapper {
-        height: 195px;
-    }
 }
 
 #tweets {
@@ -41,6 +77,10 @@ h2 {
     min-height: 51px;
     padding: 9px 12px;
     border-bottom: 1px solid #e8e8e8;
+}
+
+#tweets:last-child {
+    border-bottom: none;
 }
 
 .tweet .user-image {
@@ -69,4 +109,26 @@ h2 {
     float: right;
     margin-top: 1px;
     color: #bbb;
+}
+
+.artist {
+    margin-bottom: 20px;
+}
+
+@font-face {
+    font-family: 'Yle Regular';
+    src: url('../fonts/yle-regular-fd.eot');
+    src: url('../fonts/yle-regular-fd.eot?#iefix')
+        format('embedded-opentype'),
+        url('../fonts/yle-regular-fd.woff') format('woff'),
+        url('../fonts/yle-regular-fd.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Yle Vold';
+    src: url('../fonts/yle-bold-fd.eot');
+    src: url('../fonts/yle-bold-fd.eot?#iefix')
+        format('embedded-opentype'),
+        url('../fonts/yle-bold-fd.woff') format('woff'),
+        url('../fonts/yle-bold-fd.ttf') format('truetype');
 }

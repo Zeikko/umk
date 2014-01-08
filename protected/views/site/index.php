@@ -1,5 +1,7 @@
-<h1>Uuden musiikin kilpailun tweettilaskuri</h1>
-<p>Laskee tweetit joissa mainitaan artistin Twitter-käyttäjätunnus.</p>
+<div class="col-md-12">
+    <h1>Uuden musiikin kilpailun tweettilaskuri</h1>
+    <p>Laskee tweetit joissa mainitaan artistin Twitter-käyttäjätunnus.</p>
+</div>
 <div id="artists">
     <?php
     foreach ($artists as $artist) {

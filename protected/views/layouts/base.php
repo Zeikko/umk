@@ -7,17 +7,19 @@
     </head>
     <body>
         <div class="container">
-            <?php
-            $this->widget('zii.widgets.CMenu', array(
-                'htmlOptions' => array(
-                    'class' => 'nav nav-pills',
-                ),
-                'items' => array(
-                    array('label' => 'Tweetit', 'url' => array('/site/index')),
-                    array('label' => '#UMK14', 'url' => array('/site/umk14')),
-                ),
-            ));
-            ?>
+            <div class="col-md-12">
+                <?php
+                $this->widget('zii.widgets.CMenu', array(
+                    'htmlOptions' => array(
+                        'class' => 'nav nav-pills',
+                    ),
+                    'items' => array(
+                        array('label' => 'Tweetit', 'url' => array('/site/index')),
+                        array('label' => '#UMK14', 'url' => array('/site/umk14')),
+                    ),
+                ));
+                ?>
+            </div>
             <?php echo $content; ?>
         </div>
     </body>

@@ -26,35 +26,43 @@
 </script>
 
 <div class="artist-single">
-    <div class="row">
-        <div class="col-md-6">
-            <h2><?php echo $artist['name']; ?></h2>
-            <img class="img-rounded" src="<?php echo Artist::getImage($artist['name']); ?>" alt="<?php echo $artist['name']; ?>" />
-        </div>
-        <div class="col-md-6">
+    <div class="col-md-6">
+        <h2><?php echo $artist['name']; ?></h2>
+        <img class="img-rounded" src="<?php echo Artist::getImage($artist['name']); ?>" alt="<?php echo $artist['name']; ?>" />
+    </div>
+    <div class="col-md-6">
+        <?php
+        $this->widget('TimeseriesChart', array(
+            'url' => Yii::app()->params['tweetCounterUrl'] . 'groups/tweetcounts/',
+            'serieName' => 'Tweettejä',
+            'heading' => 'Tweetit yhteensä:',
+            'parameters' => array(
+                'group' => $artist['name'],
+                'from' => date('c', ceil(strtotime('1.1.2014') / 86400) * 86400),
+                'to' => date('c', ceil(time() / 86400) * 86400),
+            )
+        ));
+        ?>
+    </div>
+    <div class="col-md-6">
+        <h2>Viikon tweetit</h2>
+        <div id="tweets">
+
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <h2>Viikon tweetit</h2>
-            <div id="tweets">
+    <div class="col-md-6">
+        <?php
+        $this->widget('TimeseriesChart', array(
+            'url' => Yii::app()->params['tweetCounterUrl'] . 'groups/tweetcounts/',
+            'serieName' => 'Tweettejä',
+            'heading' => 'Tweetit yhteensä:',
+            'parameters' => array(
+                'group' => $artist['name'],
+                'from' => date('c', ceil(strtotime('1.1.2014') / 86400) * 86400),
+                'to' => date('c', ceil(time() / 86400) * 86400),
+            )
+        ));
+        ?>
 
-            </div>
-        </div>
-        <div class="col-md-6">
-            <?php
-            $this->widget('TimeseriesChart', array(
-                'url' => Yii::app()->params['tweetCounterUrl'] . 'groups/tweetcounts/',
-                'serieName' => 'Tweettejä',
-                'heading' => 'Tweetit yhteensä:',
-                'parameters' => array(
-                    'group' => $artist['name'],
-                    'from' => date('c', ceil(strtotime('1.1.2014') / 86400) * 86400),
-                    'to' => date('c', ceil(time() / 86400) * 86400),
-                )
-            ));
-            ?>
-
-        </div>
     </div>
 </div>
