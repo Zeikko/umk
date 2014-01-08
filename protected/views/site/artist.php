@@ -27,7 +27,7 @@
 
 <div class="artist-single">
     <div class="col-md-6">
-        <h2><?php echo $artist['name']; ?></h2>
+        <h2 class="artist-name"><?php echo $artist['name']; ?></h2>
         <img class="img-rounded" src="<?php echo Artist::getImage($artist['name']); ?>" alt="<?php echo $artist['name']; ?>" />
     </div>
     <div class="col-md-6">

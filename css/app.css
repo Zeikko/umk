@@ -24,8 +24,9 @@ h1, h2, h3 {
     margin-top: 20px;
 }
 
-.artist h2 {
-    font-family: 'Yle Bold';
+.artist h2  {
+    font-family: 'Yle Regular';
+    margin-bottom: 5px;
 }
 
 .artist img, .artist-single img {
@@ -43,7 +44,7 @@ h1, h2, h3 {
 }
 
 .total span {
-    background-color: #e8e8e8;
+    background-color: #DDEAEE;
     padding: .15em .3em .15em;
     text-align: center;
     white-space: nowrap;
@@ -51,7 +52,7 @@ h1, h2, h3 {
     border-radius: .25em;
 }
 
-.artist a, .artist a:visited {
+.artist a, .artist a:visited, .artist-name {
     color: #FF00EF;
 }
 
@@ -117,18 +118,44 @@ h1, h2, h3 {
 
 @font-face {
     font-family: 'Yle Regular';
-    src: url('../fonts/yle-regular-fd.eot');
-    src: url('../fonts/yle-regular-fd.eot?#iefix')
+    src: url('../../fonts/yle-regular-fd.eot');
+    src: url('../../fonts/yle-regular-fd.eot?#iefix')
         format('embedded-opentype'),
-        url('../fonts/yle-regular-fd.woff') format('woff'),
-        url('../fonts/yle-regular-fd.ttf') format('truetype');
+        url('../../fonts/yle-regular-fd.woff') format('woff'),
+        url('../../fonts/yle-regular-fd.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: 'Yle Vold';
-    src: url('../fonts/yle-bold-fd.eot');
-    src: url('../fonts/yle-bold-fd.eot?#iefix')
-        format('embedded-opentype'),
-        url('../fonts/yle-bold-fd.woff') format('woff'),
-        url('../fonts/yle-bold-fd.ttf') format('truetype');
+.stripe {
+    top: 0;
+    position: fixed;
+    background-image: url('../../images/stripe.png');
+    background-repeat: repeat-y;
+    height: 100%;
+    width: 200px;
+    float: left;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+
+}
+
+
+
+@media (max-width: 1600px) {
+    .stripe {
+        width: 100px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .stripe {
+        width: 50px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .stripe {
+        width: 30px;
+    }
 }
