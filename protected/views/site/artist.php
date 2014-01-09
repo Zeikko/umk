@@ -1,6 +1,5 @@
 <script type="text/javascript">
-    $(document).ready(function() {
-
+    var loadData = function loadData() {
         var tweetTemplate = _.template('<div class="tweet"><div class="tweet-content"><img class="user-image img-rounded" src="<%= profile_image_url %>" /><div><span class="name"><%= name %></span> <span class="screen-name">@<%= screen_name %></span><span class="time"><abbr class="timeago" title="<%= created_at %>"><%= created_at_title %></abbr></span></div><p><%= text %></p></div></div>');
 
         $.ajax({
@@ -50,6 +49,11 @@
                 });
             }
         });
+    }
+
+    $(document).ready(function() {
+        loadData();
+        setInterval(loadData, 1000 * 60);
     });
 </script>
 
@@ -60,7 +64,7 @@
     </div>
     <div class="col-md-6">
         <div class="placeholder">
-            
+
         </div>
     </div>
     <div class="col-md-6">

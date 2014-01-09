@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    $(document).ready(function() {
+    var loadData = function loadData() {
         $.ajax({
             dataType: 'json',
             url: '<?php echo Yii::app()->params['tweetCounterUrl'] . 'groups/tweetcounts/'; ?>',
@@ -27,6 +27,11 @@
                 });
             }
         });
+    }
+
+    $(document).ready(function() {
+        loadData();
+        setInterval(loadData, 1000 * 60);
     });
 </script>
 
