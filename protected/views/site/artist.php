@@ -9,7 +9,7 @@
                 group: '<?php echo $artist['name']; ?>',
                 from: '<?php echo date('c', ceil(strtotime('-7 days') / 86400) * 86400); ?>',
                 to: '<?php echo date('c', ceil(time() / 86400) * 86400) ?>',
-                number: 3,
+                number: 3
             },
             success: function(response) {
                 var tweetsHtml = '';
@@ -20,7 +20,7 @@
                 $('#tweets').html(tweetsHtml);
                 jQuery("abbr.timeago").timeago();
             }
-        })
+        });
 
         $.ajax({
             dataType: 'json',
@@ -68,7 +68,7 @@
         </div>
     </div>
     <div class="col-md-6">
-        <h2>Viikon tweetit</h2>
+        <h2>Viikon parhaat tweetit</h2>
         <div id="tweets">
 
         </div>
