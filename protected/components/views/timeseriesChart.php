@@ -4,7 +4,7 @@
         <span data-toggle="tooltip" title="<?php echo $this->totalTooltip; ?>" class="total">
 
         </span>
-        <span data-toggle="tooltip" title="<?php echo $this->compareTooltip; ?>" class="compare">
+        <span data-toggle="tooltip" title="<?php echo $this->compareTooltip; ?>" class="compare hidden">
 
         </span>
     </div>

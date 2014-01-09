@@ -76,6 +76,7 @@
     function compare(current, previous) {
         var percentage = 0;
         $.each(current, function(index, currentOfGroup) {
+            $("#timeseries-chart-" + index + " .compare").removeClass('hidden');
             percentage = '';
             if (previous[index].total && currentOfGroup.total) {
                 percentage = currentOfGroup.total / previous[index].total;
@@ -83,7 +84,6 @@
 
                 $("#timeseries-chart-" + index + " .compare").removeClass('positive');
                 $("#timeseries-chart-" + index + " .compare").removeClass('negative');
-                $("#timeseries-chart-" + index + " .compare").removeClass('hidden');
                 if (percentage > 0) {
                     percentage = '+' + percentage;
                     $("#timeseries-chart-" + index + " .compare").addClass('positive ');
@@ -101,7 +101,7 @@
     }
 
     $(document).ready(function() {
-        jQuery('body').tooltip({"selector":"[data-toggle=tooltip]"});
+        jQuery('body').tooltip({"selector": "[data-toggle=tooltip]"});
         loadData();
         setInterval(loadData, 1000 * 15);
     });
