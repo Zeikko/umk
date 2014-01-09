@@ -1,12 +1,15 @@
 <script type="text/javascript">
     var loadData = function loadData() {
+        var responses = 0;
+        var current = [];
+        var previous = [];
         $.ajax({
             dataType: 'json',
             url: '<?php echo Yii::app()->params['tweetCounterUrl'] . 'groups/tweetcounts/'; ?>',
             data: {
                 groups: '<?php echo implode(',', $artistNames); ?>',
-                from: '<?php echo date('c', ceil(strtotime('1.1.2014') / 86400) * 86400); ?>',
-                to: '<?php echo date('c', ceil(time() / 86400) * 86400); ?>',
+                from: '<?php echo date('c', ceil(strtotime('-7 days') / 86400) * 86400); ?>',
+                to: '<?php echo date('c', ceil(time() / 86400) * 86400); ?>'
             },
             context: this,
             success: function(response) {
@@ -16,7 +19,7 @@
                     $.each(group.tweets.history, function(index, dataPoint) {
                         max = Math.max(dataPoint.tweet_count, max);
                     });
-                    $("#timeseries-chart-" + index + " .total span").html(group.tweets.total)
+                    $("#timeseries-chart-" + index + " .total").html(group.tweets.total);
                 });
                 $.each(response, function(index, group) {
                     var series = [
@@ -32,15 +35,75 @@
                         'series': series,
                         'max': max
                     });
+                    current.push({
+                        'group': group.group,
+                        'total': group.tweets.total
+                    });
                 });
-                $('#artists .artist').tsort('.total span', {order: 'desc'});
+                $('#artists .artist').tsort('.total ', {order: 'desc'});
+                responses++;
+
+                if (responses === 2) {
+                    compare(current, previous);
+                }
             }
+        });
+
+        $.ajax({
+            dataType: 'json',
+            url: '<?php echo Yii::app()->params['tweetCounterUrl'] . 'groups/tweetcounts/'; ?>',
+            data: {
+                groups: '<?php echo implode(',', $artistNames); ?>',
+                from: '<?php echo date('c', ceil(strtotime('-14 days') / 86400) * 86400); ?>',
+                to: '<?php echo date('c', ceil(strtotime('-7 days') / 86400) * 86400); ?>'
+            },
+            context: this,
+            success: function(response) {
+                responses++;
+                $.each(response, function(index, group) {
+                    previous.push({
+                        'group': group.group,
+                        'total': group.tweets.total
+                    });
+                });
+                if (responses === 2) {
+                    compare(current, previous);
+                }
+            }
+        });
+    };
+
+    function compare(current, previous) {
+        var percentage = 0;
+        $.each(current, function(index, currentOfGroup) {
+            percentage = '';
+            if (previous[index].total && currentOfGroup.total) {
+                percentage = currentOfGroup.total / previous[index].total;
+                percentage = Math.round((percentage - 1) * 100);
+
+                $("#timeseries-chart-" + index + " .compare").removeClass('positive');
+                $("#timeseries-chart-" + index + " .compare").removeClass('negative');
+                $("#timeseries-chart-" + index + " .compare").removeClass('hidden');
+                if (percentage > 0) {
+                    percentage = '+' + percentage;
+                    $("#timeseries-chart-" + index + " .compare").addClass('positive ');
+                }
+                else if (percentage < 0) {
+                    $("#timeseries-chart-" + index + " .compare").addClass('negative');
+                }
+                $("#timeseries-chart-" + index + " .compare").html(percentage + ' %');
+            }
+            else {
+                $("#timeseries-chart-" + index + " .compare").html('-');
+            }
+
         });
     }
 
     $(document).ready(function() {
+        jQuery('body').tooltip({"selector":"[data-toggle=tooltip]"});
         loadData();
-        setInterval(loadData, 1000* 15);
+        setInterval(loadData, 1000 * 15);
     });
 </script>
 
@@ -62,6 +125,8 @@
             <?php
             $this->widget('TimeseriesChart', array(
                 'id' => 'timeseries-chart-' . $key,
+                'totalTooltip' => 'Tweettien määrä viimeiseltä seitsemältä päivältä.',
+                'compareTooltip' => 'Tweettien määrän muutos viimeiseltä seitsemältä päivältä verrattuna edeltävään seitsemään päivään.',
             ));
             ?>
         </div>

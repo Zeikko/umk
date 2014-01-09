@@ -6,6 +6,8 @@ class TimeseriesChart extends CWidget
     public $id;
     public static $counter = 0;
     public $heading = '';
+    public $totalTooltip;
+    public $compareTooltip;
 
     public function init()
     {

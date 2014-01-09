@@ -33,7 +33,7 @@
             context: this,
             success: function(response) {
                 $.each(response, function(index, group) {
-                    $("#timeseries-chart-" + index + " .total span").html(group.tweets.total)
+                    $("#timeseries-chart-" + index + " .total").html(group.tweets.total)
                     var series = [
                         {
                             name: 'Tweettejä',
@@ -53,7 +53,7 @@
 
     $(document).ready(function() {
         loadData();
-        setInterval(loadData, 1000 * 60);
+        setInterval(loadData, 1000 * 15);
     });
 </script>
 

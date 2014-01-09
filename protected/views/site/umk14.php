@@ -31,7 +31,7 @@
 
     $(document).ready(function() {
         loadData();
-        setInterval(loadData, 1000 * 60);
+        setInterval(loadData, 1000 * 15);
     });
 </script>
 

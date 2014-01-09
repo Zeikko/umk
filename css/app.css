@@ -38,18 +38,46 @@ h1, h2, h3 {
 }
 
 .artist .total {
-    font-size: 34px;
     text-align: center;
-    margin: 1em 0 0.5em 0;
 }
 
-.total span {
+.timeseries-chart h2 {
+    display: inline-block;
+}
+
+.artist .metric {
+    display: block;
+    text-align: center;
+}
+
+.metric {
+    display: inline;
+}
+
+.artist .metric {
+    display: block;
+}
+
+.metric span {
+    display: inline-block;
+    font-size: 34px;
     background-color: #DDEAEE;
     padding: .15em .3em .15em;
-    text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: .25em;
+    border-radius: .25em
+}
+
+.positive {
+    color: #12B812;
+}
+
+.negative{
+    color:#E61717
+}
+
+.hidden {
+    display: none;
 }
 
 .artist a, .artist a:visited, .artist-name {
@@ -89,10 +117,10 @@ h1, h2, h3 {
 }
 
 .tweet-content p {
-color: #5B5B5B;
-font-size: 17px;
-line-height: 1.4;
-margin-top: 5px;
+    color: #5B5B5B;
+    font-size: 17px;
+    line-height: 1.4;
+    margin-top: 5px;
 }
 
 .tweet .name {
