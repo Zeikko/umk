@@ -6,8 +6,13 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $artists = Artist::getArtists();
+        $artistNames = array();
+        foreach ($artists as $artist) {
+            $artistNames[] = $artist['name'];
+        }
         $this->render('index', array(
-            'artists' => $artists
+            'artists' => $artists,
+            'artistNames' => $artistNames,
         ));
     }
 

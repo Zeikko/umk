@@ -1,7 +1,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
-        var tweetTemplate = _.template('<div class="tweet"><div class="tweet-content"><img class="user-image img-rounded" src="<%= profile_image_url %>" /><div><span class="name"><%= name %></span> <span class="screen-name">@<%= screen_name %></span><span class="time"><abbr class="timeago" title="<%= created_at %>"><%= created_at_title %></abbr></span></div><%= text %></div></div>');
+        var tweetTemplate = _.template('<div class="tweet"><div class="tweet-content"><img class="user-image img-rounded" src="<%= profile_image_url %>" /><div><span class="name"><%= name %></span> <span class="screen-name">@<%= screen_name %></span><span class="time"><abbr class="timeago" title="<%= created_at %>"><%= created_at_title %></abbr></span></div><p><%= text %></p></div></div>');
 
         $.ajax({
             dataType: 'json',
@@ -10,7 +10,7 @@
                 group: '<?php echo $artist['name']; ?>',
                 from: '<?php echo date('c', ceil(strtotime('-7 days') / 86400) * 86400); ?>',
                 to: '<?php echo date('c', ceil(time() / 86400) * 86400) ?>',
-                number: 4,
+                number: 3,
             },
             success: function(response) {
                 var tweetsHtml = '';
@@ -22,6 +22,34 @@
                 jQuery("abbr.timeago").timeago();
             }
         })
+
+        $.ajax({
+            dataType: 'json',
+            url: '<?php echo Yii::app()->params['tweetCounterUrl'] . 'groups/tweetcounts/'; ?>',
+            data: {
+                groups: '<?php echo $artist['name'] ?>',
+                from: '<?php echo date('c', ceil(strtotime('1.1.2014') / 86400) * 86400); ?>',
+                to: '<?php echo date('c', ceil(time() / 86400) * 86400); ?>',
+            },
+            context: this,
+            success: function(response) {
+                $.each(response, function(index, group) {
+                    $("#timeseries-chart-" + index + " .total span").html(group.tweets.total)
+                    var series = [
+                        {
+                            name: 'Tweettejä',
+                            data: new Array()
+                        }
+                    ];
+                    $.each(group.tweets.history, function(index, dataPoint) {
+                        series[0].data.push(new Array(moment(dataPoint.time).valueOf(), dataPoint.tweet_count));
+                    });
+                    $("#timeseries-chart-" + index).timeseriesChart({
+                        'series': series
+                    });
+                });
+            }
+        });
     });
 </script>
 
@@ -31,18 +59,9 @@
         <img class="img-rounded" src="<?php echo Artist::getImage($artist['name']); ?>" alt="<?php echo $artist['name']; ?>" />
     </div>
     <div class="col-md-6">
-        <?php
-        $this->widget('TimeseriesChart', array(
-            'url' => Yii::app()->params['tweetCounterUrl'] . 'groups/tweetcounts/',
-            'serieName' => 'Tweettejä',
-            'heading' => 'Tweetit yhteensä:',
-            'parameters' => array(
-                'group' => $artist['name'],
-                'from' => date('c', ceil(strtotime('1.1.2014') / 86400) * 86400),
-                'to' => date('c', ceil(time() / 86400) * 86400),
-            )
-        ));
-        ?>
+        <div class="placeholder">
+            
+        </div>
     </div>
     <div class="col-md-6">
         <h2>Viikon tweetit</h2>
@@ -53,14 +72,7 @@
     <div class="col-md-6">
         <?php
         $this->widget('TimeseriesChart', array(
-            'url' => Yii::app()->params['tweetCounterUrl'] . 'groups/tweetcounts/',
-            'serieName' => 'Tweettejä',
             'heading' => 'Tweetit yhteensä:',
-            'parameters' => array(
-                'group' => $artist['name'],
-                'from' => date('c', ceil(strtotime('1.1.2014') / 86400) * 86400),
-                'to' => date('c', ceil(time() / 86400) * 86400),
-            )
         ));
         ?>
 

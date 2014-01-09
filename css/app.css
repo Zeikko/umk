@@ -72,19 +72,9 @@ h1, h2, h3 {
     height: 360px;
 }
 
-#tweets {
-    border-radius: 6px;
-    border: 1px solid #e8e8e8;
-}
-
 .tweet {
     min-height: 51px;
     padding: 9px 12px;
-    border-bottom: 1px solid #e8e8e8;
-}
-
-#tweets:last-child {
-    border-bottom: none;
 }
 
 .tweet .user-image {
@@ -98,17 +88,25 @@ h1, h2, h3 {
     min-height: 54px;
 }
 
+.tweet-content p {
+color: #5B5B5B;
+font-size: 17px;
+line-height: 1.4;
+margin-top: 5px;
+}
+
 .tweet .name {
     font-weight: bold;
+    font-size: 16px;
 }
 
 .tweet .screen-name {
-    font-size: 12px;
+    font-size: 14px;
     color: #999;
 }
 
 .tweet .time {
-    font-size: 12px;
+    font-size: 14px;
     position: relative;
     float: right;
     margin-top: 1px;
@@ -144,4 +142,9 @@ h1, h2, h3 {
     .container {
         max-width: 540px;
     }
+}
+
+.placeholder {
+    width: 570px;
+    height: 420px;
 }

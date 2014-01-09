@@ -4,9 +4,8 @@
     // Defaults
     var pluginName = "timeseriesChart",
             defaults = {
-        url: null,
-        parameters: null,
-        serieName: null
+        series: null,
+        max: null
     };
 
     //Constructor
@@ -20,34 +19,10 @@
     }
 
     Plugin.prototype.init = function() {
-        this.loadData();
+        this.renderChart();
     };
 
-    Plugin.prototype.loadData = function() {
-        $.ajax({
-            dataType: 'json',
-            url: this.options.url,
-            data: this.options.parameters,
-            context: this,
-            success: function(response) {
-                var series = [
-                    {
-                        name: this.options.serieName,
-                        data: new Array(),
-                    }
-                ];
-                $(".total span", this.element).html(response.tweets.total);
-                $.each(response.tweets.history, function(index, dataPoint) {
-                    series[0].data.push(new Array(moment(dataPoint.time).valueOf(), dataPoint.tweet_count));
-
-                });
-                this.renderChart(series);
-                $('#artists .artist').tsort('.total span',{order:'desc'});
-            }
-        })
-    }
-
-    Plugin.prototype.renderChart = function(series) {
+    Plugin.prototype.renderChart = function() {
         $(".chart", this.element).highcharts({
             chart: {
                 backgroundColor: 'rgba(255, 255, 255, 0)'
@@ -58,11 +33,12 @@
             xAxis: [
                 {
                     type: 'datetime'
-                },
+                }
             ],
             yAxis: [
                 {
                     min: 0,
+                    max: this.options.max,
                     title: false
 
                 }
@@ -77,13 +53,13 @@
                     animation: false,
                     lineWidth: 2.5,
                     marker: {
-                        enabled: false,
+                        enabled: false
                     }
                 }
             },
-            'series': series,
+            'series': this.options.series
         });
-    }
+    };
 
     // A really lightweight plugin wrapper around the constructor, 
     // preventing against multiple instantiations
@@ -94,6 +70,6 @@
                         new Plugin(this, options));
             }
         });
-    }
+    };
 
 })(jQuery, window, document);

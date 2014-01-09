@@ -1,14 +1,39 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.ajax({
+            dataType: 'json',
+            url: '<?php echo Yii::app()->params['tweetCounterUrl'] . 'groups/tweetcounts/'; ?>',
+            data: {
+                groups: 'UMK14',
+                from: '<?php echo date('c', ceil(strtotime('1.1.2014') / 86400) * 86400); ?>',
+                to: '<?php echo date('c', ceil(time() / 86400) * 86400); ?>',
+            },
+            context: this,
+            success: function(response) {
+                $.each(response, function(index, group) {
+                    $("#timeseries-chart-" + index + " .total span").html(group.tweets.total)
+                    var series = [
+                        {
+                            name: 'Tweettejä',
+                            data: new Array()
+                        }
+                    ];
+                    $.each(group.tweets.history, function(index, dataPoint) {
+                        series[0].data.push(new Array(moment(dataPoint.time).valueOf(), dataPoint.tweet_count));
+                    });
+                    $("#timeseries-chart-" + index).timeseriesChart({
+                        'series': series
+                    });
+                });
+            }
+        });
+    });
+</script>
+
 <div class="col-md-12">
     <?php
     $this->widget('TimeseriesChart', array(
-        'url' => Yii::app()->params['tweetCounterUrl'] . 'groups/tweetcounts/',
-        'serieName' => 'Tweettejä',
         'heading' => '#UMK14 Tweetit:',
-        'parameters' => array(
-            'group' => 'UMK14',
-            'from' => date('c', ceil(strtotime('1.1.2014') / 86400) * 86400),
-            'to' => date('c', ceil(time() / 86400) * 86400),
-        )
     ));
     ?>
 </div>
