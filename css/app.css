@@ -1,6 +1,7 @@
 body {
     background: url('/umk/images/noise.png');
     font-family: 'Yle Regular';
+    font-size: 15px;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -8,25 +9,24 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .container {
-    margin-top: 20px;
+    padding-top: 20px;
+    z-index: 10;
+    background: url('/umk/images/noise.png');
 }
 
 h1 {
     font-size: 40px;
 }
 
-h2 {
-    font-size: 24px;
-}
-
 h1, h2, h3 {
-    margin-bottom: 3px;
-    margin-top: 20px;
+    margin-bottom: 2px;
+    margin-top: 25px;
 }
 
 .artist h2  {
     font-family: 'Yle Regular';
     margin-bottom: 5px;
+    font-size: 23px;
 }
 
 .artist img, .artist-single img {
@@ -64,6 +64,9 @@ h1, h2, h3 {
     font-weight: bold;
 }
 
+.nav > li > a {
+    padding: 6px 14px;
+}
 
 .chart {
     height: 360px;
@@ -118,44 +121,27 @@ h1, h2, h3 {
 
 @font-face {
     font-family: 'Yle Regular';
-    src: url('../../fonts/yle-regular-fd.eot');
-    src: url('../../fonts/yle-regular-fd.eot?#iefix')
+    src: url('/umk/fonts/yle-regular-fd.eot');
+    src: url('/umk/fonts/yle-regular-fd.eot?#iefix')
         format('embedded-opentype'),
-        url('../../fonts/yle-regular-fd.woff') format('woff'),
-        url('../../fonts/yle-regular-fd.ttf') format('truetype');
+        url('/umk/fonts/yle-regular-fd.woff') format('woff'),
+        url('/umk/fonts/yle-regular-fd.ttf') format('truetype');
 }
 
 .stripe {
     top: 0;
     position: fixed;
-    background-image: url('../../images/stripe.png');
+    background-image: url('/umk/images/stripe.png');
     background-repeat: repeat-y;
     height: 100%;
     width: 200px;
     float: left;
-}
-
-/* Small devices (tablets, 768px and up) */
-@media (max-width: 768px) {
-
+    z-index: -1;
 }
 
 
-
-@media (max-width: 1600px) {
-    .stripe {
-        width: 100px;
-    }
-}
-
-@media (max-width: 1400px) {
-    .stripe {
-        width: 50px;
-    }
-}
-
-@media (max-width: 1100px) {
-    .stripe {
-        width: 30px;
+@media (max-width: 991px) {
+    .container {
+        max-width: 540px;
     }
 }

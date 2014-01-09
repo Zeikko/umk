@@ -1,6 +1,6 @@
 <div class="col-md-12">
     <h1>Uuden musiikin kilpailun tweettilaskuri</h1>
-    <p>Laskee tweetit joissa mainitaan artistin Twitter-käyttäjätunnus.</p>
+    <h4>Laskee tweetit joissa mainitaan artistin Twitter-käyttäjätunnus.</h4>
 </div>
 <div id="artists">
     <?php

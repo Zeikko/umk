@@ -6,7 +6,7 @@
         <title><?php echo CHtml::encode(''); ?></title>
     </head>
     <body>
-        <div class="stripe visible-md visible-lg"></div>
+        <div class="stripe hidden-xs"></div>
         <div class="container">
             <div class="col-md-12">
                 <?php
