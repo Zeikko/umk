@@ -32,20 +32,23 @@
             ],
             xAxis: [
                 {
-                    type: 'datetime'
+                    type: 'datetime',
+                    labels: {
+                        y: 19
+                    }
                 }
             ],
             yAxis: [
                 {
                     min: 0,
                     max: this.options.max,
-                    title: false
-
+                    title: false,
+                    gridLineWidth: 2
                 }
             ],
             tooltip: {
                 style: {
-                    fontSize: '16px'
+                    fontSize: '14px'
                 }
             },
             legend: false,
@@ -56,7 +59,7 @@
             plotOptions: {
                 line: {
                     animation: false,
-                    lineWidth: 7,
+                    lineWidth: 6,
                     marker: {
                         enabled: false
                     }
