@@ -29,6 +29,20 @@ class SiteController extends Controller
         }
     }
 
+    public function actionArtistEmbed($name)
+    {
+        $this->layout = 'plain';
+        $name = urldecode($name);
+        $artist = Artist::getArtist($name);
+        if ($artist) {
+            $this->render('artistEmbed', array(
+                'artist' => $artist,
+            ));
+        } else {
+            new CHttpException(404, 'Not Found');
+        }
+    }
+
     public function actionError()
     {
         if ($error = Yii::app()->errorHandler->error) {

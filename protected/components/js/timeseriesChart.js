@@ -4,7 +4,25 @@
     // Defaults
     var pluginName = "timeseriesChart",
             defaults = {
-        chartOptions: {
+        series: null,
+        max: null
+    };
+
+    //Constructor
+    function Plugin(element, options) {
+        this.element = element;
+        this.options = $.extend({}, defaults, options);
+        this._defaults = defaults;
+        this._name = pluginName;
+        this.init();
+    }
+
+    Plugin.prototype.init = function() {
+        this.renderChart();
+    };
+
+    Plugin.prototype.renderChart = function() {
+        $(".chart", this.element).highcharts({
             chart: {
                 backgroundColor: 'rgba(255, 255, 255, 0)'
             },
@@ -15,14 +33,17 @@
                 {
                     type: 'datetime',
                     labels: {
-                        y: 19
+                        y: 22
                     }
                 }
             ],
             yAxis: [
                 {
                     min: 0,
+                    max: this.options.max,
                     title: false,
+                    gridLineWidth: 2,
+                    gridLineColor: '#979797'
                 }
             ],
             tooltip: {
@@ -38,31 +59,14 @@
             plotOptions: {
                 line: {
                     animation: false,
-                    lineWidth: 3,
+                    lineWidth: 6,
                     marker: {
                         enabled: false
                     }
                 }
-            }
-        }
-    };
-
-
-    //Constructor
-    function Plugin(element, options) {
-        this.element = element;
-        this.options = $.extend(true, {}, defaults, options);
-        this._defaults = defaults;
-        this._name = pluginName;
-        this.init();
-    }
-
-    Plugin.prototype.init = function() {
-        this.renderChart();
-    };
-
-    Plugin.prototype.renderChart = function() {
-        $(".chart", this.element).highcharts(this.options.chartOptions);
+            },
+            'series': this.options.series
+        });
     };
 
     // A really lightweight plugin wrapper around the constructor, 
