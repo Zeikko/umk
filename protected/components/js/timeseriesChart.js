@@ -43,6 +43,11 @@
 
                 }
             ],
+            tooltip: {
+                style: {
+                    fontSize: '16px'
+                }
+            },
             legend: false,
             credits: {
                 enabled: false
@@ -51,7 +56,7 @@
             plotOptions: {
                 line: {
                     animation: false,
-                    lineWidth: 2.5,
+                    lineWidth: 7,
                     marker: {
                         enabled: false
                     }
