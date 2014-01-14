@@ -4,26 +4,7 @@
     // Defaults
     var pluginName = "timeseriesChart",
             defaults = {
-        series: null,
-        max: null
-    };
-
-    //Constructor
-    function Plugin(element, options) {
-        this.element = element;
-        this.options = $.extend({}, defaults, options);
-        this._defaults = defaults;
-        this._name = pluginName;
-
-        this.init();
-    }
-
-    Plugin.prototype.init = function() {
-        this.renderChart();
-    };
-
-    Plugin.prototype.renderChart = function() {
-        $(".chart", this.element).highcharts({
+        chartOptions: {
             chart: {
                 backgroundColor: 'rgba(255, 255, 255, 0)'
             },
@@ -41,9 +22,7 @@
             yAxis: [
                 {
                     min: 0,
-                    max: this.options.max,
                     title: false,
-                    gridLineWidth: 2
                 }
             ],
             tooltip: {
@@ -59,14 +38,31 @@
             plotOptions: {
                 line: {
                     animation: false,
-                    lineWidth: 6,
+                    lineWidth: 3,
                     marker: {
                         enabled: false
                     }
                 }
-            },
-            'series': this.options.series
-        });
+            }
+        }
+    };
+
+
+    //Constructor
+    function Plugin(element, options) {
+        this.element = element;
+        this.options = $.extend(true, {}, defaults, options);
+        this._defaults = defaults;
+        this._name = pluginName;
+        this.init();
+    }
+
+    Plugin.prototype.init = function() {
+        this.renderChart();
+    };
+
+    Plugin.prototype.renderChart = function() {
+        $(".chart", this.element).highcharts(this.options.chartOptions);
     };
 
     // A really lightweight plugin wrapper around the constructor, 

@@ -44,7 +44,23 @@
                         series[0].data.push(new Array(moment(dataPoint.time).valueOf(), dataPoint.tweet_count));
                     });
                     $("#timeseries-chart-" + index).timeseriesChart({
-                        'series': series
+                        chartOptions: {
+                            'series': series,
+                            yAxis: {
+                                min: 0,
+                                title: false,
+                                gridLineWidth: <?php if(Yii::app()->request->getQuery('tv')) echo 2; else echo 1; ?>,
+                            },
+                            'series': series
+                            <?php if(Yii::app()->request->getQuery('tv')) { ?>
+                            ,
+                            plotOptions: {
+                                line: {
+                                    lineWidth: 6
+                                }
+                            }
+                            <?php } ?>
+                        },
                     });
                 });
             }

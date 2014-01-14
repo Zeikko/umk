@@ -8,6 +8,7 @@ class TimeseriesChart extends CWidget
     public $heading = '';
     public $totalTooltip;
     public $compareTooltip;
+    public $chartOptions;
 
     public function init()
     {
