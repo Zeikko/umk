@@ -1,17 +1,11 @@
 body {
-    background: url('/umk/images/noise.png');
+    background: transparent;
     font-family: 'Yle Regular';
     font-size: 15px;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: 'Yle Regular';
-}
-
-.container {
-    padding-top: 20px;
-    z-index: 10;
-    background: url('/umk/images/noise.png');
 }
 
 h1 {

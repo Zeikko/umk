@@ -1,0 +1,12 @@
+/*
+Background is in separate file because it is not used in the embeddable content
+*/
+.container {
+    padding-top: 20px;
+    z-index: 10;
+    background: url('/umk/images/noise.png');
+}
+
+body {
+    background: url('/umk/images/noise.png');
+}

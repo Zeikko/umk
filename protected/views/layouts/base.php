@@ -33,6 +33,11 @@
                         Yii::getPathOfAlias('webroot.css') . '/app.css'
                 )
         );
+        Yii::app()->clientScript->registerCssFile(
+                Yii::app()->assetManager->publish(
+                        Yii::getPathOfAlias('webroot.css') . '/background.css'
+                )
+        );
         ?>
     </head>
     <body>
