@@ -1,0 +1,19 @@
+body {
+    background: transparent;
+}
+
+.container {
+    background: transparent;
+}
+
+h2 {
+    color: #818181;
+}
+
+.metric {
+    color: white;
+}
+
+.metric span {
+    background-color: #9ed4e6;
+}
