@@ -6,8 +6,9 @@ body {
     background: transparent;
 }
 
-h2 {
+h2, h5 {
     color: #818181;
+    margin-left: 9px;
 }
 
 .metric {
@@ -16,4 +17,9 @@ h2 {
 
 .metric span {
     background-color: #9ed4e6;
+}
+
+h5 {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

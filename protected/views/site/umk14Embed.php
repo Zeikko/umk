@@ -4,7 +4,7 @@
             dataType: 'json',
             url: '<?php echo Yii::app()->params['tweetCounterUrl'] . 'groups/tweetcounts/'; ?>',
             data: {
-                groups: '<?php echo $artist['name'] ?>',
+                groups: 'UMK14',
                 from: '<?php echo date('c', ceil(strtotime('1.1.2014') / 86400) * 86400); ?>',
                 to: '<?php echo date('c', ceil(time() / 86400) * 86400); ?>',
             },
@@ -35,11 +35,10 @@
     });
 </script>
 
-<div class="artist-single">
-    <h5>Tweetit joissa mainitaan artistin Twitter-käyttäjätunnus</h5>
+<div class="col-md-12">
     <?php
     $this->widget('TimeseriesChart', array(
-        'heading' => 'Tweetit yhteensä:',
+        'heading' => '#UMK14 Tweetit:',
     ));
     ?>
 </div>
