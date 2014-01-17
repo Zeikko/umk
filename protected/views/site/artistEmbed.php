@@ -36,7 +36,7 @@
 </script>
 
 <div class="artist-single">
-    <h5>Tweetit joissa mainitaan artistin Twitter-käyttäjätunnus</h5>
+    <p>Tweetit joissa mainitaan artistin Twitter-käyttäjätunnus</p>
     <?php
     $this->widget('TimeseriesChart', array(
         'heading' => 'Tweetit yhteensä:',

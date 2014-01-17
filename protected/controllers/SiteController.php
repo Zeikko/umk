@@ -25,7 +25,7 @@ class SiteController extends Controller
                 'artist' => $artist,
             ));
         } else {
-            new CHttpException(404, 'Not Found');
+            throw new CHttpException(404, 'Not Found');
         }
     }
 
@@ -39,7 +39,7 @@ class SiteController extends Controller
                 'artist' => $artist,
             ));
         } else {
-            new CHttpException(404, 'Not Found');
+            throw new CHttpException(404, 'Not Found');
         }
     }
 
