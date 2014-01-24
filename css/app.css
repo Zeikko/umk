@@ -34,7 +34,7 @@ h1, h2, h3 {
 }
 
 .artist .chart {
-    height: 200px;
+    height: 100px;
 }
 
 .artist .total {
@@ -101,7 +101,7 @@ span.hidden {
 }
 
 .chart {
-    height: 360px;
+    height: 250px;
 }
 
 .tweet {
