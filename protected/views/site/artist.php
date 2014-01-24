@@ -63,17 +63,13 @@
         <img class="img-rounded" src="<?php echo Artist::getImage($artist['name']); ?>" alt="<?php echo $artist['name']; ?>" />
     </div>
     <div class="col-md-6">
-        <div class="placeholder">
-
-        </div>
-    </div>
-    <div class="col-md-6">
         <h2>Viikon parhaat tweetit</h2>
         <div id="tweets">
 
         </div>
     </div>
-    <div class="col-md-6">
+
+    <div class="col-md-12">
         <?php
         $this->widget('TimeseriesChart', array(
             'heading' => 'Tweetit yhteensä:',
