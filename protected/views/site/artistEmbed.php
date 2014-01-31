@@ -42,4 +42,5 @@
         'heading' => 'Tweetit yhteensä:',
     ));
     ?>
+    <p>Löydät lisää reaaliaikaisia Twitter-tilastoja osoitteesta <a target="_blank" href="http://data.yle.fi/umk">data.yle.fi/umk</a>.</p>
 </div>

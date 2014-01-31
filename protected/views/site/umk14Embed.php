@@ -35,10 +35,11 @@
     });
 </script>
 
-<div class="col-md-12">
+<div>
     <?php
     $this->widget('TimeseriesChart', array(
         'heading' => '#UMK14 Tweetit:',
     ));
     ?>
+    <p>Löydät lisää reaaliaikaisia Twitter-tilastoja osoitteesta <a target="_blank" href="http://data.yle.fi/umk">data.yle.fi/umk</a>.</p>
 </div>
