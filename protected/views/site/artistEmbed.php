@@ -5,7 +5,7 @@
             url: '<?php echo Yii::app()->params['tweetCounterUrl'] . 'groups/tweetcounts/'; ?>',
             data: {
                 groups: '<?php echo $artist['name'] ?>',
-                from: '<?php echo date('c', ceil(strtotime('1.1.2014') / 86400) * 86400); ?>',
+                from: '<?php echo date('c', ceil(strtotime('13.1.2015') / 86400) * 86400); ?>',
                 to: '<?php echo date('c', ceil(time() / 86400) * 86400); ?>',
             },
             context: this,
@@ -42,5 +42,4 @@
         'heading' => 'Tweetit yhteensä:',
     ));
     ?>
-    <p>Löydät lisää reaaliaikaisia Twitter-tilastoja osoitteesta <a target="_blank" href="http://data.yle.fi/umk">data.yle.fi/umk</a>.</p>
 </div>

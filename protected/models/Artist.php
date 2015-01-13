@@ -7,41 +7,55 @@ class Artist
     {
         return array(
             array(
-                'name' => 'Clarissa',
+                'name' => 'Otto Ivar',
             ),
             array(
-                'name' => 'Dennis Fagerström',
-                'image' => 'dennis_fagerstrom',
+                'name' => 'Pihka ja myrsky',
             ),
             array(
-                'name' => 'Hanna Sky',
+                'name' => 'Ida Bois',
             ),
             array(
-                'name' => 'Hukka ja Mama',
+                'name' => 'Heidi Pakarinen',
             ),
             array(
-                'name' => 'Jasmin Michaela',
+                'name' => 'Eeverest',
             ),
             array(
-                'name' => 'Lili Lambert',
+                'name' => 'Opera Skaala',
             ),
             array(
-                'name' => 'Lauri Mikkola',
+                'name' => 'Hans On The Bass',
             ),
             array(
-                'name' => 'MadCraft',
+                'name' => 'Shava',
             ),
             array(
-                'name' => 'Makea',
+                'name' => 'Satin Circus',
             ),
             array(
-                'name' => 'MIAU',
+                'name' => 'Jouni Aslak',
             ),
             array(
-                'name' => 'Mikko Pohjola',
+                'name' => 'Järjestyshäiriö',
             ),
             array(
-                'name' => 'Softengine',
+                'name' => 'Siru',
+            ),
+            array(
+                'name' => 'Aikuinen',
+            ),
+            array(
+                'name' => 'Vilikaspar Kanth',
+            ),
+            array(
+                'name' => 'Norlan El Misionario',
+            ),
+            array(
+                'name' => 'Angelo De Nile',
+            ),
+            array(
+                'name' => 'Solju',
             ),
         );
     }
