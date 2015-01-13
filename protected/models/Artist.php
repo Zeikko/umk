@@ -7,6 +7,43 @@ class Artist
     {
         return array(
             array(
+                'name' => 'Clarissa',
+            ),
+            array(
+                'name' => 'Dennis Fagerström',
+                'image' => 'dennis_fagerstrom',
+            ),
+            array(
+                'name' => 'Hanna Sky',
+            ),
+            array(
+                'name' => 'Hukka ja Mama',
+            ),
+            array(
+                'name' => 'Jasmin Michaela',
+            ),
+            array(
+                'name' => 'Lili Lambert',
+            ),
+            array(
+                'name' => 'Lauri Mikkola',
+            ),
+            array(
+                'name' => 'MadCraft',
+            ),
+            array(
+                'name' => 'Makea',
+            ),
+            array(
+                'name' => 'MIAU',
+            ),
+            array(
+                'name' => 'Mikko Pohjola',
+            ),
+            array(
+                'name' => 'Softengine',
+            ),
+            array(
                 'name' => 'Otto Ivar',
             ),
             array(
