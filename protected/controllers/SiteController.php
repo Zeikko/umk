@@ -66,4 +66,11 @@ class SiteController extends Controller
         ));
     }
 
+    public function actionUmk15Embed()
+    {
+        $this->layout = 'plain';
+        $this->render('umk15Embed', array(
+        ));
+    }
+
 }
